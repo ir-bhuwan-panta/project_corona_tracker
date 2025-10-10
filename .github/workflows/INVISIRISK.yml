@@ -41,7 +41,7 @@ jobs:
 
       - name: Cleanup PSE
         if: always()
-        uses: ${{ env.PSE_ACTION_IMAGE }}
+        uses: invisirisk/pse-action@dev-test
         with:
           cleanup: "true"
 
@@ -52,7 +52,7 @@ jobs:
    if: always()
    steps:
    - name: Gather Status
-     uses: ${{ env.PSE_ACTION_IMAGE }}
+     uses: invisirisk/pse-action@dev-test
      with:
       api_url: ${{ env.IR_API_URL }}
       app_token: ${{ secrets.IR_API_KEY_L_STAGE }}
