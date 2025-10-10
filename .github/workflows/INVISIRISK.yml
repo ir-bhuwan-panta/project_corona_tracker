@@ -11,7 +11,7 @@ permissions:
 env:
   IR_API_URL: "https://app.stage.invisirisk.com"
   IR_APP_TOKEN: ${{ secrets.IR_API_KEY_L_STAGE }}
-  PSE_ACTION_IMAGE: "invisirisk/pse-action@dev-test"
+  PSE_ACTION_IMAGE: invisirisk/pse-action@dev-test
 
 jobs:
   sync-and-build:
