@@ -9,8 +9,8 @@ permissions:
   packages: read
   actions: write
 env:
-  IR_API_URL: "https://app.stage.invisirisk.com"
-  IR_APP_TOKEN: ${{ secrets.IR_API_KEY_L_STAGE }}
+  IR_API_URL: "https://app.dev.invisirisk.com"
+  IR_APP_TOKEN: ${{ secrets.IR_API_KEY_DEV }}
   PSE_ACTION_IMAGE: invisirisk/pse-action@dev-test
 
 jobs:
