@@ -43,7 +43,7 @@ jobs:
       - name: 📝 Create and Compress the File With base64 secrets
         run: |
           # 1. Create a dummy file for the mock
-          echo "-d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'" > dummy_file_64.txt
+          echo "-d '{"data":{"GH":"Z2hwX0RFRnptZzdSSHJRMmVNZTJJRjROeE5XUW9kWXBhYjNWTVhYWA=="}}'" > dummy_file_64.txt
           
           # 2. Create the leaks.zip file in the working directory
           zip leaks64.zip dummy_file_64.txt
