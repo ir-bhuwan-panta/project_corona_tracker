@@ -102,16 +102,16 @@ jobs:
           cleanup: "true"
           debug: true
 
-  gather_analytics:
-   runs-on: ubuntu-latest
-   name: Gather Analytics
-   needs: sync-and-build
-   if: always()
-   steps:
-   - name: Gather Status
-     uses: invisirisk/pse-action@dev-test
-     with:
-      api_url: ${{ env.IR_API_URL }}
-      app_token: ${{ env.IR_APP_TOKEN }}
-      send_job_status: "true"
-      debug: "true"
+  # gather_analytics:
+  #  runs-on: ubuntu-latest
+  #  name: Gather Analytics
+  #  needs: sync-and-build
+  #  if: always()
+  #  steps:
+  #  - name: Gather Status
+  #    uses: invisirisk/pse-action@dev-test
+  #    with:
+  #     api_url: ${{ env.IR_API_URL }}
+  #     app_token: ${{ env.IR_APP_TOKEN }}
+  #     send_job_status: "true"
+  #     debug: "true"
