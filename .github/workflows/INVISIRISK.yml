@@ -23,7 +23,7 @@ jobs:
         with:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
-          debug: true
+          ir_debug: true
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -100,7 +100,7 @@ jobs:
         uses: invisirisk/pse-action@develop
         with:
           cleanup: "true"
-          debug: true
+          ir_debug: true
 
   # gather_analytics:
   #  runs-on: ubuntu-latest
