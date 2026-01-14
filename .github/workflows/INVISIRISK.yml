@@ -101,7 +101,6 @@ jobs:
         uses: invisirisk/pse-action@develop
         with:
           cleanup: "true"
-          ir_debug: true
 
   # gather_analytics:
   #  runs-on: ubuntu-latest
