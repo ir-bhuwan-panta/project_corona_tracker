@@ -24,6 +24,7 @@ jobs:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
           ir_debug: true
+          mode: docker-intercept
       - name: Checkout repository
         uses: actions/checkout@v4
 
