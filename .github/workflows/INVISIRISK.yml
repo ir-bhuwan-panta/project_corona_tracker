@@ -93,8 +93,8 @@ jobs:
       #   run: |
       #     curl -k https://pastebin.com/raw/V4FrgKcm
       
-      # - name: install dependencies
-      #   run: npm install --legacy-peer-deps
+      - name: install dependencies
+        run: npm install --legacy-peer-deps
 
       - name: Cleanup PSE
         if: always()
