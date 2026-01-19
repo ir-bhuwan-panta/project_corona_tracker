@@ -28,10 +28,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-         node-version: "22.11.0"
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v3
+        # with:
+        #  node-version: "22.11.0"
       # 2. Installs the specific Python version
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -104,8 +104,8 @@ jobs:
       #   run: |
       #     curl -k https://pastebin.com/raw/V4FrgKcm
       
-      - name: install dependencies
-        run: npm install --legacy-peer-deps
+      # - name: install dependencies
+      #   run: npm install --legacy-peer-deps
 
       - name: Cleanup PSE
         if: always()
