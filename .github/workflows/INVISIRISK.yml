@@ -23,7 +23,7 @@ jobs:
         with:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
-          parse_deps: false
+          # parse_deps: false
           # ir_debug: true
           # mode: docker-intercept
       - name: Checkout repository
