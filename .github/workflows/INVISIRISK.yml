@@ -23,8 +23,6 @@ jobs:
         with:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
-          # parse_deps: false
-          debug: true
           # mode: docker-intercept
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -113,7 +111,6 @@ jobs:
         uses: invisirisk/pse-action@develop
         with:
           cleanup: "true"
-          debug: true
 
   # gather_analytics:
   #  runs-on: ubuntu-latest
