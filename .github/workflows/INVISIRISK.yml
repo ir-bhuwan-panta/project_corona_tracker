@@ -113,6 +113,7 @@ jobs:
         uses: invisirisk/pse-action@develop
         with:
           cleanup: "true"
+          debug_pse: true
 
   # gather_analytics:
   #  runs-on: ubuntu-latest
