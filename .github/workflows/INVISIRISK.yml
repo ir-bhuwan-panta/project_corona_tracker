@@ -42,8 +42,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip' # Automatically caches pip downloads
-          cache-dependency-path: requirements.txt
+          # cache: 'pip' # Automatically caches pip downloads
+          # cache-dependency-path: requirements.txt
 
       - name: Install Python dependencies
         run: |
