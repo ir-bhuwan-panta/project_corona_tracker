@@ -34,8 +34,8 @@ jobs:
         uses: actions/setup-node@v4 # Upgraded to v4 for better stability
         with:
           node-version: "22.11.0"
-          cache: 'npm' # Automatically caches ~/.npm
-          cache-dependency-path: package-lock.json
+          # cache: 'npm' # Automatically caches ~/.npm
+          # cache-dependency-path: package-lock.json
 
       # --- PYPI CACHING ADDED HERE ---
       - name: Set up Python
