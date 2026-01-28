@@ -52,7 +52,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Install JS dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
 
       - name: Cleanup PSE
         if: always()
