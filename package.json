@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "newman run Todo_API.postman_collection.json"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "newman run Todo_API.postman_collection.json",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -16,5 +19,12 @@
     "sqlite3": "^5.1.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "jest": "^30.2.0",
+    "supertest": "^7.0.0",
+    "eslint": "^9.19.0",
+    "prettier": "^3.4.2"
   }
 }
