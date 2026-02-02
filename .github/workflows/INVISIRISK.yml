@@ -25,6 +25,7 @@ jobs:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
           # collect_dependencies: false
+          mode: docker-intercept
           debug: true
 
       - name: Checkout repository
