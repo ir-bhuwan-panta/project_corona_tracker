@@ -11,3 +11,5 @@ pytest==8.0.0
 python-dotenv==1.0.0
 
 google-cloud-storage==3.9.0
+
+graphql-core==3.2.1
