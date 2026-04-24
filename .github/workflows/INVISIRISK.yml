@@ -27,6 +27,8 @@ jobs:
           # collect_dependencies: false
           # mode: docker-intercept
           debug: true
+        post:
+          run: echo "Hello world"
 
       - name: Checkout repository
         uses: actions/checkout@v4
