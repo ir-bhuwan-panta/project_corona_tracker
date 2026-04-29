@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup PSE
-        uses: invisirisk/pse-action@develop
+        uses: invisirisk/pse-action@feat/VU-2025-refactor-thin-execution-layer
         with:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
@@ -54,9 +54,9 @@ jobs:
       # - name: Install JS dependencies
       #   run: npm install
 
-      - name: Cleanup PSE
-        if: always()
-        uses: invisirisk/pse-action@develop
-        with:
-          cleanup: "true"
-          debug: true
+      # - name: Cleanup PSE
+      #   if: always()
+      #   uses: invisirisk/pse-action@develop
+      #   with:
+      #     cleanup: "true"
+      #     debug: true
