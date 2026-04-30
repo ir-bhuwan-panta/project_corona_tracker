@@ -19,8 +19,6 @@ jobs:
     name: Sync fork and Run build
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
       - name: Setup PSE
         uses: invisirisk/pse-action@feat/use-pse-data-collector
         with:
@@ -29,6 +27,8 @@ jobs:
           # collect_dependencies: false
           mode: docker-intercept
           debug: true
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       # --- NPM CACHING ADDED HERE ---
       # - name: Use Node.js
