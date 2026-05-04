@@ -28,7 +28,7 @@ jobs:
           app_token: ${{ env.IR_APP_TOKEN }}
           # collect_dependencies: false
           # mode: sidecar
-          debug: true
+          # debug: true
       - name: Checkout repository
         uses: actions/checkout@v4
 
