@@ -21,8 +21,10 @@ jobs:
     name: Sync fork and Run build
 
     steps:
-      - name: get token
-        run: echo ${{github}}
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Setup PSE
         uses: invisirisk/pse-action@feat/use-pse-data-collector
         with:
