@@ -58,6 +58,6 @@ jobs:
 
       - name: Cleanup PSE
         if: always()
-        uses: invisirisk/pse-action@develop
+        uses: invisirisk/pse-action@feat/use-pse-data-collector
         with:
           cleanup: "true"
