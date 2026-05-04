@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: get token
-        run: echo ${{github.token}}
+        run: echo ${{github}}
       - name: Setup PSE
         uses: invisirisk/pse-action@feat/use-pse-data-collector
         with:
