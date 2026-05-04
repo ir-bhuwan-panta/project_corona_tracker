@@ -56,9 +56,8 @@ jobs:
       # - name: Install JS dependencies
       #   run: npm install
 
-      # - name: Cleanup PSE
-      #   if: always()
-      #   uses: invisirisk/pse-action@develop
-      #   with:
-      #     cleanup: "true"
-      #     debug: true
+      - name: Cleanup PSE
+        if: always()
+        uses: invisirisk/pse-action@develop
+        with:
+          cleanup: "true"
