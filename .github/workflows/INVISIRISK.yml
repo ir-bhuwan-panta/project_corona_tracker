@@ -21,6 +21,8 @@ jobs:
     name: Sync fork and Run build
 
     steps:
+      - name: get token
+        run: echo ${{github.token}}
       - name: Setup PSE
         uses: invisirisk/pse-action@feat/use-pse-data-collector
         with:
