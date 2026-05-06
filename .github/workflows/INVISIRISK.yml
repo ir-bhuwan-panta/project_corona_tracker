@@ -24,7 +24,7 @@ jobs:
     steps:
 
       - name: Setup PSE
-        uses: invisirisk/pse-action@develop
+        uses: invisirisk/pse-action@feat/use-pse-data-collector
         with:
           api_url: ${{ env.API_URL }}
           app_token: ${{ env.APP_TOKEN }}
