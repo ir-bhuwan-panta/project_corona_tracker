@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Setup PSE
-        uses: invisirisk/pse-action@feat/use-pse-data-collector
+        uses: invisirisk/pse-action@develop
         with:
           api_url: ${{ env.IR_API_URL }}
           app_token: ${{ env.IR_APP_TOKEN }}
@@ -56,8 +56,8 @@ jobs:
       # - name: Install JS dependencies
       #   run: npm install
 
-      - name: Cleanup PSE
-        if: always()
-        uses: invisirisk/pse-action@develop
-        with:
-          cleanup: "true"
+      # - name: Cleanup PSE
+      #   if: always()
+      #   uses: invisirisk/pse-action@develop
+      #   with:
+      #     cleanup: "true"
