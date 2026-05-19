@@ -28,8 +28,8 @@ jobs:
           app_token: ${{ env.IR_APP_TOKEN }}
           # collect_dependencies: false
           mode: docker-intercept
-          pse_image_tag: dev-test
-          debug: true
+          # pse_image_tag: dev-test
+          # debug: true
       - name: Checkout repository
         uses: actions/checkout@v4
 
