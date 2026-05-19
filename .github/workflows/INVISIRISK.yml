@@ -7,9 +7,6 @@ on:
 
 permissions:
   checks: write
-  contents: write
-  packages: read
-  actions: write
 
 env:
   IR_API_URL: "https://app.dev.invisirisk.com"
