@@ -4,6 +4,7 @@ on:
   push:
     branches: STAGE
   workflow_dispatch:
+permissions: write-all
   
 env:
   IR_API_URL: "https://app.dev.invisirisk.com"
