@@ -8,7 +8,7 @@ permissions: write-all
   
 env:
   IR_API_URL: "https://app.dev.invisirisk.com"
-  IR_APP_TOKEN: ${{ secrets.IR_API_KEY_DEV }}
+  IR_APP_TOKEN: ${{ secrets.IR_API_KEY_STAGE }}
 
 jobs:
   sync-and-build:
