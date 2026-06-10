@@ -28,7 +28,7 @@ jobs:
           
       - name: Checkout repository
         uses: actions/checkout@v4
-      - run: bash secret-leak.sh
+      # - run: bash secret-leak.sh
 
       # --- NPM CACHING ADDED HERE ---
       # - name: Use Node.js
