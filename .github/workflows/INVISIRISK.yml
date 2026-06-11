@@ -18,9 +18,9 @@ jobs:
     name: Sync fork and Run build
 
     # 2. Forces all run steps to use Git Bash (MinGW) by default
-    defaults:
-      run:
-        shell: bash
+    # defaults:
+    #   run:
+    #     shell: bash
 
     steps:
       - run: mktemp
