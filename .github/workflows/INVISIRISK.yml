@@ -23,6 +23,7 @@ jobs:
         shell: bash
 
     steps:
+      - run: mktemp
       - name: Setup PSE
         uses: invisirisk/pse-action@develop
         with:
