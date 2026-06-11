@@ -29,6 +29,7 @@ jobs:
           api_url: ${{env.IR_API_URL}}
           app_token: ${{ env.IR_APP_TOKEN }}
           debug: true
+          mode: sidecar
           
       - name: Checkout repository
         uses: actions/checkout@v4
