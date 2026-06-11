@@ -29,6 +29,6 @@ jobs:
             if ($LASTEXITCODE -eq 0) {
               Write-Host "Admin-only command succeeded: net session"
             } else {
-              Write-Host "Admin-only command failed with exit code $LASTEXITCODE: net session"
+              Write-Host "Admin-only command failed with exit code ${ASTEXITCODE}: net session"
             }
           '
