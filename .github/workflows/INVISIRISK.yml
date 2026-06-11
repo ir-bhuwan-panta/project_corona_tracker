@@ -4,6 +4,7 @@ on:
   push:
     branches: STAGE
   workflow_dispatch:
+
 permissions: write-all
   
 env:
@@ -12,8 +13,14 @@ env:
 
 jobs:
   sync-and-build:
-    runs-on: ubuntu-latest
+    # 1. Switched from ubuntu-latest to windows-latest
+    runs-on: windows-latest
     name: Sync fork and Run build
+
+    # 2. Forces all run steps to use Git Bash (MinGW) by default
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Setup PSE
@@ -21,41 +28,20 @@ jobs:
         with:
           api_url: ${{env.IR_API_URL}}
           app_token: ${{ env.IR_APP_TOKEN }}
-          # collect_dependencies: false
-          # mode: docker-intercept
-          # pse_image_tag: dev-test
           debug: true
           
       - name: Checkout repository
         uses: actions/checkout@v4
-      # - run: bash secret-leak.sh
 
-      # --- NPM CACHING ADDED HERE ---
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v4 # Upgraded to v4 for better stability
-      #   with:
-      #     node-version: "22.11.0"
-      #     cache: 'npm' # Automatically caches ~/.npm
-      #     cache-dependency-path: package-lock.json
-
-      # --- PYPI CACHING ADDED HERE ---
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip' # Automatically caches pip downloads
+          cache: 'pip'
           cache-dependency-path: requirements.txt
 
       - name: Install Python dependencies
+        # This bash syntax will now execute smoothly inside MinGW Git Bash on Windows
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      # - name: Install JS dependencies
-      #   run: npm install
-
-      # - name: Cleanup PSE
-      #   if: always()
-      #   uses: invisirisk/pse-action@develop
-      #   with:
-      #     cleanup: "true"
