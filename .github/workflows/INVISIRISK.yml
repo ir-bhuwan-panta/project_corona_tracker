@@ -8,6 +8,8 @@ on:
 permissions: write-all
   
 env:
+  IR_MOCK_URL: "https://app.dev.invisirisk.com"
+  IR_MOCK_TOKEN: ${{ secrets.IR_API_KEY_DEV }}
   IR_API_URL: "https://app.dev.invisirisk.com"
   IR_APP_TOKEN: ${{ secrets.IR_API_KEY_DEV }}
 
@@ -26,7 +28,7 @@ jobs:
       - run: env
       - run: WORKFLOW_PATH=$(echo "$GITHUB_WORKFLOW_REF" | awk -F'@' '{print $1}' | sed 's|^[^/]*/[^/]*/||') || echo WORKFLOW_PATH
       - name: Setup PSE
-        uses: invisirisk/pse-action@develop
+        uses: ir-bhuwan-panta/pse-action@mock/gittea
         with:
           api_url: ${{env.IR_API_URL}}
           app_token: ${{ env.IR_APP_TOKEN }}
