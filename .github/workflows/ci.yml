@@ -1,7 +1,7 @@
 name: Windows Bash PowerShell POC
 
 on:
-  push:
+  # push:
   workflow_dispatch:
 
 jobs:
