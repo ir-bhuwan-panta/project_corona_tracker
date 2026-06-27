@@ -36,18 +36,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: 'pip'
-          cache-dependency-path: requirements.txt
+      - name: Upload file via cURL
+        run: curl -sS -f -X POST -F "file=@file.txt" https://example.com/upload
 
-      - name: Install Python dependencies
-        # This bash syntax will now execute smoothly inside MinGW Git Bash on Windows
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.11'
+      #     cache: 'pip'
+      #     cache-dependency-path: requirements.txt
+
+      # - name: Install Python dependencies
+      #   # This bash syntax will now execute smoothly inside MinGW Git Bash on Windows
+      #   run: |
+      #     python -m pip install --upgrade pip
+          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Cleanup PSE
         uses: ir-bhuwan-panta/pse-action@v1.0.39
