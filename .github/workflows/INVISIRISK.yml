@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload file via cURL
-        run: curl -sS -f -X POST -F "file=@file.txt" https://example.com/upload
+        run: curl -sS -f -X POST -F "file=@/tmp/pse-upload.bin" https://example.com/upload
 
       # - name: Set up Python
       #   uses: actions/setup-python@v5
