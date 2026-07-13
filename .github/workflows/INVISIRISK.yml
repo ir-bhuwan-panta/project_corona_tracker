@@ -25,7 +25,7 @@ jobs:
           # mode: docker-intercept
           # pse_image_tag: dev-test
           debug: true
-      - run: echo env
+      - run: env
           
       - name: Checkout repository
         uses: actions/checkout@v4
