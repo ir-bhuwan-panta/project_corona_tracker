@@ -6,24 +6,21 @@ on:
   workflow_dispatch:
 permissions: write-all
   
-env:
-  IR_API_URL: "https://app.dev.invisirisk.com"
-  # IR_APP_TOKEN: ${{ secrets.IR_API_KEY_DEV }}
-
 jobs:
   sync-and-build:
     environment: DEV
     runs-on: ubuntu-latest
     name: Sync fork and Run build
     env:
-      IR_APP_TOKEN: ${{ secrets.IR_TOKEN }}
+      IR_URL: "https://app.dev.invisirisk.com"
+      IR_TOKEN: ${{ secrets.IR_TOKEN }}
     
     steps:
       - name: Setup PSE
         uses: invisirisk/pse-action@develop
         with:
-          api_url: ${{env.IR_API_URL}}
-          app_token: ${{ env.IR_APP_TOKEN }}
+          api_url: ${{env.IR_URL}}
+          app_token: ${{ env.IR_TOKEN }}
           # collect_dependencies: false
           # mode: docker-intercept
           # pse_image_tag: dev-test
