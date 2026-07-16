@@ -4,11 +4,16 @@ on:
   # push:
   #   branches: STAGE
   workflow_dispatch:
+    inputs:
+      environment:
+        default: DEV
+        description: "PSE environment to run upon"
+        
 permissions: write-all
   
 jobs:
   sync-and-build:
-    environment: DEV
+    environment: ${{ inputs.passes }}
     runs-on: ubuntu-latest
     name: Sync fork and Run build
     env:
