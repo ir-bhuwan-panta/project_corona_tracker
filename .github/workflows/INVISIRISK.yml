@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Sync fork and Run build
     env:
-      IR_URL: "https://app.dev.invisirisk.com"
+      IR_URL: ${{ secrets.IR_URL }}
       IR_TOKEN: ${{ secrets.IR_TOKEN }}
     
     steps:
