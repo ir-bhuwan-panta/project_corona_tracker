@@ -8,15 +8,19 @@ on:
 
 jobs:
   profile:
+    environment: DEV
     runs-on: ubuntu-latest
+    env:
+      IR_URL: ${{secrets.IR_URL}}
+      IR_TOKEN: $${{secrets.IR_TOKEN}}
+      
     steps:
       # ============= InvisiRisk Setup =============
       - name: Setup PSE
         uses: invisirisk/pse-action@latest
         with:
-          api_url: "https://app.invisirisk.com"
-          app_token: iedg8f_-j6Nm6bLfGCxu92iKXv6uAuQcVBwb6pbKYhl_UhXEZhwgOcs_IrW2pf_NuR02hlrKQR94FuWZdnK6Dg
-          mode: "docker-intercept"
+          api_url: ${{env.IR_URL}}
+          app_token: ${{env.IR_TOKEN}}
       # ============= InvisiRisk Setup End =============
 
       - uses: actions/checkout@v4
