@@ -1,8 +1,8 @@
 name: JS
 
 on:
-  push:
-    branches: STAGE
+  # push:
+  #   branches: STAGE
   workflow_dispatch:
 permissions: write-all
   
