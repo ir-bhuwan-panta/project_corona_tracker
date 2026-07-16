@@ -26,6 +26,8 @@ jobs:
           # mode: docker-intercept
           # pse_image_tag: dev-test
           debug: true
+        env:
+          IR_TOKEN: ${{ env.IR_TOKEN }}
       - run: env
           
       - name: Checkout repository
