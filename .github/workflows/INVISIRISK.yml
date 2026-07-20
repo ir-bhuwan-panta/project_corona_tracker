@@ -57,9 +57,48 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       # - name: Install JS dependencies
       #   run: npm install
+  sync-and-build-2:
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    name: Sync fork and Run build 2
+    env:
+      IR_URL: ${{ secrets.IR_URL }}
+      IR_TOKEN: ${{ secrets.IR_TOKEN }}
+    
+    steps:
+      - name: Setup PSE
+        uses: invisirisk/pse-action@develop
+        with:
+          api_url: ${{env.IR_URL}}
+          app_token: ${{ env.IR_TOKEN }}
+          # collect_dependencies: false
+          # mode: docker-intercept
+          # pse_image_tag: dev-test
+          debug: true
+          
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # - run: bash secret-leak.sh
 
-      # - name: Cleanup PSE
-      #   if: always()
-      #   uses: invisirisk/pse-action@develop
+      # --- NPM CACHING ADDED HERE ---
+      - name: Use Node.js
+        uses: actions/setup-node@v4 # Upgraded to v4 for better stability
+        with:
+          node-version: "22.11.0"
+          cache: 'npm' # Automatically caches ~/.npm
+          cache-dependency-path: package-lock.json
+      - name: Install JS dependencies
+        run: npm install
+
+      # --- PYPI CACHING ADDED HERE ---
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
       #   with:
-      #     cleanup: "true"
+      #     python-version: '3.11'
+      #     cache: 'pip' # Automatically caches pip downloads
+      #     cache-dependency-path: requirements.txt
+
+      # - name: Install Python dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
