@@ -1,0 +1,34 @@
+name: Windows Bash PowerShell POC
+
+on:
+  # push:
+  workflow_dispatch:
+
+jobs:
+  sync-and-build:
+    runs-on: windows-latest
+    name: Sync fork and Run build
+
+    defaults:
+      run:
+        shell: bash
+
+    # steps:
+    #   - name: Checkout
+    #     uses: actions/checkout@v4
+
+    #   - name: Run PowerShell from Bash
+    #     run: |
+    #       echo "Bash shell: $BASH"
+    #       pwsh -NoLogo -NoProfile -Command '
+    #         Write-Host "Hostname: $env:COMPUTERNAME"
+    #         $isAdmin = (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
+    #         Write-Host "Admin token: $isAdmin"
+
+    #         cmd /c "net session" *> $null
+    #         if ($LASTEXITCODE -eq 0) {
+    #           Write-Host "Admin-only command succeeded: net session"
+    #         } else {
+    #           Write-Host "Admin-only command failed with exit code ${ASTEXITCODE}: net session"
+    #         }
+    #       '
